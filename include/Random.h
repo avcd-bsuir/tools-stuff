@@ -11,6 +11,7 @@
 #ifndef RANDOM_H
 #define RANDOM_H
 
+#include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
 
