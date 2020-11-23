@@ -11,6 +11,7 @@
 #ifndef MATH_H
 #define MATH_H
 
+#include <stdbool.h>
 #include <stdio.h>
 
 // x ^ n
@@ -31,10 +32,10 @@ float aPow(float x, int n) {
 // Print integer as binary
 void aPrintBinary(int value, int prec, bool whitespace) {
     int mask = 1 << (prec - 1); // Create mask '1000...'
-    for (int i = 1; i < prec; i++) {
+    for (int i = 0; i < prec; i++) {
         putchar(mask & value ? '1' : '0'); // If ith bit of value is one, print one
         value <<= 1; // Shift value 1 right
-        if (i % 8 == 0 && whitespace) // Print ' ' every 8 digits
+        if (i % 8 == 0 && whitespace && i != prec - 1) // Print ' ' every 8 digits
             putchar(' ');
     }
 }
