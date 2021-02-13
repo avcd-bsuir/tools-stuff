@@ -35,7 +35,7 @@ void aPrintBinary(int value, int prec, bool whitespace) {
     for (int i = 0; i < prec; i++) {
         putchar(mask & value ? '1' : '0'); // If ith bit of value is one, print one
         value <<= 1; // Shift value 1 right
-        if (i % 8 == 0 && whitespace && i != prec - 1) // Print ' ' every 8 digits
+        if ((i + 1) % 8 == 0 && whitespace && i != prec - 1) // Print ' ' every 8 digits
             putchar(' ');
     }
 }

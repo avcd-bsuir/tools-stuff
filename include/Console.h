@@ -11,6 +11,8 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
+#ifdef _WIN32
+
 #include <windows.h>
 
 // Get and return console buffer size
@@ -20,5 +22,7 @@ void aGetConsoleBufferSize(int * width, int * height) {
     *width = csbi.srWindow.Right - csbi.srWindow.Left + 1;
     *height = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
 }
+
+#endif
 
 #endif

@@ -72,6 +72,31 @@ Print integer as binary.
 
 Returns random integer in range from A to B including both A and B.
 
+# Random 'nice to know' stuff
+
+```c
+// Read input file
+if (argc != 2) {
+    printf("Usage: compiler [filename]\n");
+    exit(1);
+}
+FILE * input_file = fopen(argv[1], "rb");
+if (!input_file) {
+    printf("Error while opening file '%s'!\n", argv[1]);
+    exit(1);
+}
+fseek(input_file, 0, SEEK_END);
+long len = ftell(input_file);
+fseek(input_file, 0, SEEK_SET);
+char * input = malloc(len);
+if (!input) {
+    printf("Error while opening file '%s'!\n", argv[1]);
+    exit(1);
+}
+fread(input, 1, len, input_file);
+fclose(input_file);
+```
+
 # Credits
 
 Written by Alexey Filich.
